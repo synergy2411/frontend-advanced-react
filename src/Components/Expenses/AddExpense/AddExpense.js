@@ -14,19 +14,40 @@ const AddExpense = () => {
     }
 
     return (
-        <form onSubmit={submitHandler}>
-            {/* title */}
-            <label htmlFor="title">Title : </label>
-            <input type="text" name="title"
-                onChange={titleChangeHandler} />
-            <br />
+        <div className='card m-4'>
+            <div className='card-body'>
+                <h4 className='text-center'>Add Expense Form</h4>
 
-            {/* amount */}
+                <form onSubmit={submitHandler}>
+                    {/* title */}
+                    <div className='form-group m-2 p-2'>
+                        <div className='row'>
+                            <div className='col-5'>
+                                <label htmlFor="title">Title : </label>
+                            </div>
+                            <div className='col-7'>
+                                <input type="text" name="title"
+                                    onChange={titleChangeHandler}
+                                    className="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
 
-            {/* created at date */}
-            <button className='btn btn-success' type='submit'>
-                Add</button>
-        </form>
+                    {/* amount */}
+
+                    {/* created at date */}
+
+                    <div className='row'>
+                        <div className='col-6 d-grid'>
+                            <button className='btn btn-success' type='submit'>
+                                Add</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     )
 }
 
