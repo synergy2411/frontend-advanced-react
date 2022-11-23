@@ -33,12 +33,18 @@ const Expenses = () => {
                 My Expenses
             </p>
 
-            <button className="btn btn-dark"
-                onClick={showClickHandler}>
-                {show ? 'Hide' : 'Show'} Add Expense
-            </button>
             <div className="row">
-                <div className="col-8 offset-2">
+                <div className="col-4 offset-4">
+                    <div className="d-grid">
+                        <button className="btn btn-dark"
+                            onClick={showClickHandler}>
+                            {show ? 'Hide' : 'Show'} Add Expense
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-6 offset-3">
                     {show && <AddExpense />}
                 </div>
             </div>

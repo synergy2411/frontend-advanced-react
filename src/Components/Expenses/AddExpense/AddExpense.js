@@ -3,14 +3,22 @@ import { useState } from 'react';
 const AddExpense = () => {
 
     const [enteredTitle, setEnteredTitle] = useState('');
+    const [enteredAmount, setEnteredAmount] = useState('');
+    const [enteredCreatedAt, setEnteredCreatedAt] = useState('');
 
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
     }
 
+    const amountChangeHandler = event => setEnteredAmount(event.target.value)
+
+    const createdAtChangeHandler = event => setEnteredCreatedAt(event.target.value)
+
     const submitHandler = event => {
         event.preventDefault();
         console.log("Entered Title : ", enteredTitle);
+        console.log("Entered Amount : ", enteredAmount);
+        console.log("Entered Created At : ", enteredCreatedAt);
     }
 
     return (
@@ -20,7 +28,7 @@ const AddExpense = () => {
 
                 <form onSubmit={submitHandler}>
                     {/* title */}
-                    <div className='form-group m-2 p-2'>
+                    <div className='form-group my-2'>
                         <div className='row'>
                             <div className='col-5'>
                                 <label htmlFor="title">Title : </label>
@@ -32,11 +40,38 @@ const AddExpense = () => {
                             </div>
                         </div>
                     </div>
-                    <br />
 
                     {/* amount */}
+                    <div className='form-group my-2'>
+                        <div className='row'>
+                            <div className='col-5'>
+                                <label htmlFor="amount">Amount : </label>
+                            </div>
+                            <div className='col-7'>
+                                <input type="number" name="amount"
+                                    onChange={amountChangeHandler}
+                                    className="form-control"
+                                    min="0.0"
+                                    step="0.1" />
+                            </div>
+                        </div>
+                    </div>
 
                     {/* created at date */}
+                    <div className='form-group my-2'>
+                        <div className='row'>
+                            <div className='col-5'>
+                                <label htmlFor="created-at">Created At : </label>
+                            </div>
+                            <div className='col-7'>
+                                <input type="date" name="created-at"
+                                    onChange={createdAtChangeHandler}
+                                    className="form-control"
+                                    min="2019-04-31"
+                                    max="2022-12-31" />
+                            </div>
+                        </div>
+                    </div>
 
                     <div className='row'>
                         <div className='col-6 d-grid'>
