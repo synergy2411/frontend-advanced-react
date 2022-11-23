@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import AddExpense from "./AddExpense/AddExpense";
+import ExpenseItem from "./ExpenseItem/ExpenseItem";
 
 const Expenses = () => {
 
-    let expense = {
+    let expenses = [{
         id: "e001",
         title: "shopping",
         amount: 19.9,
         createdAt: new Date("Dec 21, 2021")
+    }, {
+        id: "e002",
+        title: "insurance",
+        amount: 29.9,
+        createdAt: new Date("Jan 2, 2020")
+    }, {
+        id: "e003",
+        title: "grocery",
+        amount: 11.9,
+        createdAt: new Date("Aug 22, 2022")
+    }]
+
+    // let showForm = false;
+
+    const [showForm, setShowForm] = useState(false)         // 2 elements - State Variable - function to chnage the state
+
+    console.log("EXPENSES RENDER");
+
+    const showFormClickHandler = () => {
+        // showForm = !showForm;                // NEVER CHANGE STATE LIKE THIS
+        setShowForm(!showForm)
     }
 
     return (
@@ -15,18 +38,17 @@ const Expenses = () => {
                 My Expenses
             </p>
 
+            <button className="btn btn-dark"
+                onClick={showFormClickHandler}>Show Add Expense</button>
+
+            {showForm && <AddExpense />}
+
+            <br />
+
             <div className="row">
-                <div className="col-6">
-                    <div className="card">
-                        <div className="card-header">
-                            <h6 className="text-center">{expense.title.toUpperCase()}</h6>
-                        </div>
-                        <div className="card-body">
-                            <p>Amount  : ${expense.amount}</p>
-                            <p>Created At : {expense.createdAt.toString()}</p>
-                        </div>
-                    </div>
-                </div>
+                <ExpenseItem exp={expenses[0]} />
+                <ExpenseItem exp={expenses[1]} />
+                <ExpenseItem exp={expenses[2]} />
             </div>
 
         </div>
