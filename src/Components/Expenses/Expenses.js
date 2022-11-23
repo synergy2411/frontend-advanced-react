@@ -21,11 +21,10 @@ const Expenses = () => {
         createdAt: new Date("Aug 22, 2022")
     }]
 
-    const [showForm, setShowForm] = useState(false)         // 2 elements - State Variable - function to chnage the state
+    const [show, setShow] = useState(false);
 
-    const showFormClickHandler = () => {
-        // showForm = !showForm;                // NEVER CHANGE STATE LIKE THIS
-        setShowForm(!showForm)
+    const showClickHandler = () => {
+        setShow(!show)
     }
 
     return (
@@ -35,9 +34,11 @@ const Expenses = () => {
             </p>
 
             <button className="btn btn-dark"
-                onClick={showFormClickHandler}>Show Add Expense</button>
+                onClick={showClickHandler}>
+                {show ? 'Hide' : 'Show'} Add Expense
+            </button>
 
-            {showForm && <AddExpense />}
+            {show && <AddExpense />}
 
             <br />
 
