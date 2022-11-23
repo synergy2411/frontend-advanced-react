@@ -21,11 +21,7 @@ const Expenses = () => {
         createdAt: new Date("Aug 22, 2022")
     }]
 
-    // let showForm = false;
-
     const [showForm, setShowForm] = useState(false)         // 2 elements - State Variable - function to chnage the state
-
-    console.log("EXPENSES RENDER");
 
     const showFormClickHandler = () => {
         // showForm = !showForm;                // NEVER CHANGE STATE LIKE THIS
