@@ -46,9 +46,8 @@ const Expenses = () => {
         setExpenses(filteredExpenses);
     }
 
-    const onFilterYear = selYear => {
-        setSelectedYear(selYear);       // << 2022
-    }
+    const onFilterYear = selYear => setSelectedYear(selYear);       // << 2022
+
 
     let filteredExp = expenses.filter(exp => exp.createdAt.getFullYear().toString() === selectedYear)
 
