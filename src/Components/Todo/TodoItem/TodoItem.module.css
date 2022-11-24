@@ -1,0 +1,38 @@
+.my-list {
+  /* display: flex; */
+  border: 1px grey solid;
+  padding: 10px 10px;
+  margin: 10px 0;
+  position: relative;
+  transition: all 0.3s ease;
+  font-size: 0.8em;
+}
+.my-list:hover {
+  box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-delete {
+  text-align: end;
+  background-color: rgb(221, 60, 60);
+  border: none;
+  /* border-radius: 50%; */
+  font-size: 0.6em;
+  color: #fff;
+  font-weight: 700;
+  padding: 0 10px;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+  background-color: #fff;
+  color: red;
+}
+
+.paragraph {
+  margin: 10px;
+  text-align: start;
+}
