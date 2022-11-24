@@ -1,14 +1,12 @@
 import { useState } from 'react';
 
-const AddExpense = () => {
+const AddExpense = (props) => {
 
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredCreatedAt, setEnteredCreatedAt] = useState('');
 
-    const titleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value);
-    }
+    const titleChangeHandler = (event) => setEnteredTitle(event.target.value);
 
     const amountChangeHandler = event => setEnteredAmount(event.target.value)
 
@@ -16,9 +14,7 @@ const AddExpense = () => {
 
     const submitHandler = event => {
         event.preventDefault();
-        console.log("Entered Title : ", enteredTitle);
-        console.log("Entered Amount : ", enteredAmount);
-        console.log("Entered Created At : ", enteredCreatedAt);
+        props.onAddExpense(enteredTitle, enteredAmount, enteredCreatedAt);
     }
 
     return (
@@ -67,7 +63,7 @@ const AddExpense = () => {
                                 <input type="date" name="created-at"
                                     onChange={createdAtChangeHandler}
                                     className="form-control"
-                                    min="2019-04-31"
+                                    min="2019-04-01"
                                     max="2022-12-31" />
                             </div>
                         </div>
@@ -77,7 +73,6 @@ const AddExpense = () => {
                         <div className='col-6 d-grid'>
                             <button className='btn btn-success' type='submit'>
                                 Add</button>
-
                         </div>
                     </div>
                 </form>
