@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import classes from './TodoAction.module.css';
+import { useState } from "react";
+
 
 const TodoAction = (props) => {
 
     const [enteredLabel, setEnteredLabel] = useState('');
 
-    const labelChangeHandler = event => setEnteredLabel(event.target.value);
+    const labelChangeHandler = event => setEnteredLabel(event.target.value)
 
-    const clickHandler = () => props.onAddItem(enteredLabel)
-
+    const btnClickHandler = () => {
+        props.addTodo(enteredLabel);
+    }
     return (
-        <div className={classes['action-box']}>
-            <input type="text" onChange={labelChangeHandler} className={classes['todo-input']} />
-            <button className={classes['todo-button']} onClick={clickHandler}>Add</button>
+        <div>
+            <input type="text" onChange={labelChangeHandler} />
+            <button onClick={btnClickHandler}>Add</button>
         </div>
-    );
+    )
 }
 
 export default TodoAction;

@@ -1,28 +1,29 @@
-// import "./Todo.css";
 import { useState } from "react";
-import classes from "./Todo.module.css";
 import TodoAction from "./TodoAction/TodoAction";
 import TodoItem from "./TodoItem/TodoItem";
 
 const Todo = () => {
-    const [todoCollection, setTodoCollection] = useState([]);
 
-    const onAddItem = label => {
-        let newItem = { id: "t00" + (todoCollection.length + 1), label }
-        setTodoCollection(todos => [newItem, ...todos])
+    const [todos, setTodos] = useState([])
+
+    const addTodo = label => {
+        let newTodo = {
+            id: "t00" + (todos.length + 1),
+            label
+        }
+        setTodos((prevTodos) => [newTodo, ...prevTodos])
     }
 
-    const onDeleteItem = (todoId) => {
-        let filteredTodo = todoCollection.filter(todo => todo.id !== todoId)
-        setTodoCollection(filteredTodo)
+    const deleteTodo = todoId => {
+        const filteredTodoArray = todos.filter(t => t.id !== todoId)
+        setTodos(filteredTodoArray);
     }
     return (
-        <div className={classes['my-container']}>
-            <h1 className={classes['heading']}>Todo App</h1>
-            <TodoAction onAddItem={onAddItem} />
-            <ul className={classes['list-group']}>
-                {todoCollection.map(todo => <TodoItem todo={todo} onDeleteItem={onDeleteItem} />)}
-            </ul>
+        <div className="container">
+            <h1>My Todos</h1>
+            <TodoAction addTodo={addTodo} />
+            <br />
+            {todos.map((todo) => <TodoItem key={todo.id} deleteTodo={deleteTodo} todo={todo} />)}
         </div>
     )
 }

@@ -77,7 +77,7 @@ const Expenses = () => {
             </div>
 
             <div className="row">
-                {filteredExp.map(expense => <ExpenseItem exp={expense} onDeleteExpense={onDeleteExpense} />)}
+                {filteredExp.map(expense => <ExpenseItem key={expense.id} exp={expense} onDeleteExpense={onDeleteExpense} />)}
             </div>
 
         </div>

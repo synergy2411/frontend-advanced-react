@@ -1,13 +1,15 @@
-import React from 'react';
-import classes from './TodoItem.module.css';
 const TodoItem = (props) => {
+
+    const deleteHandler = () => {
+        props.deleteTodo(props.todo.id)
+    }
     return (
-        <li className={classes['my-list']}>
-            <p className={classes["paragraph"]}>{props.todo.label.toUpperCase()}</p>
-            <button className={classes["btn-delete"]}
-                onClick={() => props.onDeleteItem(props.todo.id)}>DELETE</button>
-        </li>
-    );
+        <div>
+            <p>{props.todo.label.toUpperCase()}</p>
+            <button onClick={deleteHandler}>DELETE</button>
+        </div>
+    )
+
 }
 
 export default TodoItem;
