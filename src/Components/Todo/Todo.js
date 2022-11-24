@@ -1,8 +1,10 @@
+import classes from "./Todo.module.css";
+
 const Todo = () => {
 
     return (
-        <div>
-            <h1>Todo App</h1>
+        <div className={classes['my-container']}>
+            <h1 className={classes['heading']}>Todo App</h1>
         </div>
     )
 }
