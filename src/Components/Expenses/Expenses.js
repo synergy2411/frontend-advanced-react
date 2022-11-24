@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AddExpense from "./AddExpense/AddExpense";
+import ExpenseFilter from "./ExpenseFilter/ExpenseFilter";
 import ExpenseItem from "./ExpenseItem/ExpenseItem";
 
 
@@ -26,6 +27,8 @@ const Expenses = () => {
 
     const [show, setShow] = useState(false);
 
+    const [selectedYear, setSelectedYear] = useState('2019')
+
     const showClickHandler = () => setShow(!show);
 
     const onAddExpense = (title, amount, createdAt) => {
@@ -37,6 +40,17 @@ const Expenses = () => {
         }
         setExpenses((prevExpenses) => [newExpense, ...prevExpenses]);
     }
+
+    const onDeleteExpense = id => {
+        const filteredExpenses = expenses.filter(exp => exp.id !== id)
+        setExpenses(filteredExpenses);
+    }
+
+    const onFilterYear = selYear => {
+        setSelectedYear(selYear);       // << 2022
+    }
+
+    let filteredExp = expenses.filter(exp => exp.createdAt.getFullYear().toString() === selectedYear)
 
     return (
         <div className="container">
@@ -53,6 +67,9 @@ const Expenses = () => {
                         </button>
                     </div>
                 </div>
+                <div className="col-4">
+                    <ExpenseFilter onFilterYear={onFilterYear} />
+                </div>
             </div>
             <div className="row">
                 <div className="col-6 offset-3">
@@ -60,10 +77,8 @@ const Expenses = () => {
                 </div>
             </div>
 
-            <br />
-
             <div className="row">
-                {expenses.map(expense => <ExpenseItem exp={expense} />)}
+                {filteredExp.map(expense => <ExpenseItem exp={expense} onDeleteExpense={onDeleteExpense} />)}
             </div>
 
         </div>
