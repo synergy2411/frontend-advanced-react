@@ -5,6 +5,7 @@ import Todo from "./Components/Todo/Todo";
 
 import { Route, Routes } from 'react-router-dom';
 import ProductList from "./Components/Products/ProductList/ProductList";
+import AddProduct from "./Components/Products/AddProduct/AddProduct";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/product-list" element={<ProductList />} />
+        <Route path="/add-product" element={<AddProduct />} />
       </Routes>
     </div>
   );
