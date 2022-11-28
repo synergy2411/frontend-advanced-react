@@ -6,10 +6,12 @@ import Todo from "./Components/Todo/Todo";
 import { Route, Routes } from 'react-router-dom';
 import ProductList from "./Components/Products/ProductList/ProductList";
 import AddProduct from "./Components/Products/AddProduct/AddProduct";
+import Header from "./Components/Products/Header/Header";
 
 function App() {
   return (
     <div>
+      <Header />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/product-list" element={<ProductList />} />

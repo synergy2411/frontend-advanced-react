@@ -20,15 +20,16 @@ const AddProduct = () => {
             price: priceInputRef.current.value
         }
         try {
-            const response = fetch("http://localhost:3030/products", {
+            const response = await fetch("http://localhost:3030/products", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(newProduct)
             })
-            const data = await response;
+            const data = await response.json();
             console.log(data);
+            navigate("/product-list")
         } catch (err) {
             console.log(err);
         }
