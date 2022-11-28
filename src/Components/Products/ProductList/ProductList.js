@@ -19,7 +19,9 @@ const ProductList = () => {
     }, [])
 
 
-    const deleteClickHandler = (productId) => navigate("/product-list/edit/" + productId)
+    const deleteClickHandler = (productId) => {
+        navigate("/product-list/edit/" + productId)
+    }
 
     return (
         <div className="container">
