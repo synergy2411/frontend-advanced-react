@@ -16,7 +16,7 @@ const ProductList = () => {
             setProducts(data);
         }
         fetchProducts()
-    }, [])
+    })
 
 
     const deleteClickHandler = (productId) => {
