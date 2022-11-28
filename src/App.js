@@ -1,3 +1,4 @@
+import UseEffectDemo from "./Components/Demo/UseEffectDemo";
 import Expenses from "./Components/Expenses/Expenses";
 import Login from "./Components/Login/Login";
 import Todo from "./Components/Todo/Todo";
@@ -7,7 +8,8 @@ function App() {
     <div>
       {/* <Expenses /> */}
       {/* <Todo /> */}
-      <Login />
+      {/* <Login /> */}
+      <UseEffectDemo />
     </div>
   );
 }
