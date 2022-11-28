@@ -7,16 +7,21 @@ import { Route, Routes } from 'react-router-dom';
 import ProductList from "./Components/Products/ProductList/ProductList";
 import AddProduct from "./Components/Products/AddProduct/AddProduct";
 import Header from "./Components/Products/Header/Header";
+import Users from "./Components/Demo/Users/Users";
 
 function App() {
   return (
     <div>
-      <Header />
+      <h1>The Demo</h1>
       <Routes>
+        <Route path="/users/*" element={<Users />} />
+      </Routes>
+      {/* <Header /> */}
+      {/* <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/product-list/*" element={<ProductList />} />
         <Route path="/add-product" element={<AddProduct />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
