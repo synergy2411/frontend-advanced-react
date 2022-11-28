@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { Routes, useNavigate, Route } from 'react-router-dom';
+
 import ProductEdit from "../ProductEdit/ProductEdit";
 
 const ProductList = () => {
 
     const [products, setProducts] = useState([]);
-    const [showEdit, setShowEdit] = useState(false);
+    // const [showEdit, setShowEdit] = useState(false);
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -16,7 +19,7 @@ const ProductList = () => {
     }, [])
 
 
-    const deleteClickHandler = () => setShowEdit(true)
+    const deleteClickHandler = (productId) => navigate("/product-list/edit/" + productId)
 
     return (
         <div className="container">
@@ -37,13 +40,17 @@ const ProductList = () => {
                             <td>{product.name.toUpperCase()}</td>
                             <td>{product.company.toUpperCase()}</td>
                             <td>${product.price}</td>
-                            <td><button onClick={deleteClickHandler} className="btn btn-outline-danger btn-sm">DELETE</button></td>
+                            <td><button onClick={() => deleteClickHandler(product.id)}
+                                className="btn btn-outline-danger btn-sm">DELETE</button></td>
                         </tr>
                     })}
 
                 </tbody>
             </table>
-            {showEdit && <ProductEdit />}
+            {/* {showEdit && <ProductEdit />} */}
+            <Routes>
+                <Route path="/edit/:productId" element={<ProductEdit />} />
+            </Routes>
         </div>
     )
 }
