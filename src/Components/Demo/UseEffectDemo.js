@@ -4,18 +4,32 @@ const UseEffectDemo = () => {
 
     const [show, setShow] = useState(false)
     const [toggle, setToggle] = useState(false)
+    const [posts, setPosts] = useState([]);
+
+    // useEffect(() => {
+    //     console.log("Without Dependency");
+    // })
+
+    // useEffect(() => {
+    //     console.log("With Empty Dependency");
+    // }, [])
+
+    // useEffect(() => {
+    //     console.log("With 'Toggle' Dependency");
+    //     return () => {                              // << CLEAN UP FUNCTION
+    //         console.log("Clean up");
+    //     }
+    // }, [toggle])
 
     useEffect(() => {
-        console.log("Without Dependency");
-    })
-
-    useEffect(() => {
-        console.log("With Empty Dependency");
+        const fetchPosts = async () => {
+            const response = await fetch("https://jsonplaceholder.typicode.com/posts")
+            const data = await response.json()
+            console.log(data);
+            setPosts(data);
+        }
+        fetchPosts();
     }, [])
-
-    useEffect(() => {
-        console.log("With 'Toggle' Dependency");
-    }, [toggle])
 
 
     const showClickHandler = () => setShow(!show);
@@ -28,8 +42,17 @@ const UseEffectDemo = () => {
             <button className='btn btn-success' onClick={toggleClickHandler}>Toggle</button>
             {show && <p>This paragraph will be show/hide</p>}
             {toggle && <p>This paragraph will be toggle</p>}
+            <hr />
+            <ul>
+                {posts.map(post => <li key={post.id}>{post.title}</li>)}
+            </ul>
         </div>
     )
 }
 
 export default UseEffectDemo;
+
+
+// const numbers = [2,3,4,5];
+// const newArr = numbers.map(v => v * 2)
+// console.log(newArr);            // [4,6,8,10]
