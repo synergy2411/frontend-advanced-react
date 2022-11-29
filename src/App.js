@@ -8,16 +8,18 @@ import ProductList from "./Components/Products/ProductList/ProductList";
 import AddProduct from "./Components/Products/AddProduct/AddProduct";
 import Header from "./Components/Products/Header/Header";
 import Users from "./Components/Demo/Users/Users";
+import Counter from "./Components/Counter/Counter";
 
 function App() {
   return (
     <div>
-      <Header />
+      <Counter />
+      {/* <Header />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/product-list/*" element={<ProductList />} />
         <Route path="/add-product" element={<AddProduct />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
