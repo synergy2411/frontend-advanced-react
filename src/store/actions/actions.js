@@ -2,6 +2,7 @@ export const INCREMENT = "[Counter] to increase counter by 1"
 export const DECREMENT = "[Counter] to decrese counter by 1"
 export const ADD_COUNTER = "[Counter] to add payload value"
 export const SUB_COUNTER = "[Counter] to subtract the payload value"
+export const STORE_RESULT = "[Result] to store current counter value"
 
 // Action creator
 

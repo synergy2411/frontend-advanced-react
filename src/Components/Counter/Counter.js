@@ -31,7 +31,8 @@ const Counter = () => {
                     Subtract - 5</button>
             </div>
             <hr />
-            <button className='btn btn-info'>Store Result</button>
+            <button className='btn btn-info'
+                onClick={() => dispatch({ type: fromActions.STORE_RESULT })}>Store Result</button>
         </div>
     );
 }
