@@ -30,6 +30,8 @@ const Counter = () => {
                     onClick={() => dispatch(fromActions.onSubtractCounter(5))}>
                     Subtract - 5</button>
             </div>
+            <hr />
+            <button className='btn btn-info'>Store Result</button>
         </div>
     );
 }

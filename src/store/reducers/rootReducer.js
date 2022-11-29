@@ -1,7 +1,8 @@
 import * as fromActions from '../actions/actions';
 
 const initialState = {
-    counter: 0
+    counter: 0,
+    result: []
 }
 
 function rootReducer(state = initialState, action) {

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { composeWithDevTools } from '@redux-devtools/extension';
 
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -12,7 +13,7 @@ import rootReducer from './store/reducers/rootReducer';
 import logger from './store/middleware/logger';
 
 
-const store = createStore(rootReducer, applyMiddleware(logger))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger)))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
